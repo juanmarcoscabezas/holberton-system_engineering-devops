@@ -1,16 +1,20 @@
 # Scripts to understand the shell basics
 + 0-current_working_directory.
 >
->> script that prints the absolute path name of the current working directory
+> script that prints the absolute path name of the current working directory
 >
 + 1-listit.
 >
->> script that display the contents list of yout current directory
+> script that display the contents list of yout current directory
 >
 + 2-bring_me_home.
-script that changes the working directory to the user's home directory
+>
+> script that changes the working directory to the user's home directory
+>
 + 3-listfiles.
-script that display the current directory contents in a long format
+>
+> script that display the current directory contents in a long format
+>
 + 4-listmorefiles.
 script that display the current directory contents, including hidden files. Use the long format
 + 5-listfilesdigitonly.

@@ -1,38 +1,43 @@
 
-0. current_working_directory.
-> script that prints the absolute path name of the current working directory
+0. iam_betty.
+> script that changes your user ID to betty
 >
-1. listit.
-> script that display the contents list of yout current directory
+1. who_am_i.
+> script that prints  the effective userid of the current user
 >
-2. bring_me_home.
-> script that changes the working directory to the user's home directory
+2. groups.
+> script that prints all the groups the current user is part of
 >
-3. listfiles.
-> script that display the current directory contents in a long format
+3. new_owner.
+> script that changes the owner of the file hello to the user betty
 >
-4. listmorefiles.
-> script that display the current directory contents, including hidden files. Use the long format
+4. empty.
+> script that creates an empty file called hello
 >
-5. listfilesdigitonly.
-> script that display current directory contents, with user and group IDs
+5. execute.
+> script that adds execute permission to the owner of the file hello.
 >
-6. firstdirectory.
-> script that creates a directory named holberton in the /tmp/ directory
+6. multiple_permissions.
+> script that excecute permission to the owner and the group owner, and read permission to the other users, to the file hello
 >
-7. movethatfile.
-> script that move the file betty from /tmp/ to /tmp/holberton
+7. everybody.  
+> script that adds execution permission to the owner, the group and the oother users, to the file hello.
 >
-8. firstdelete.
-> script that delete the file betty inside the directory /tmp/holberton
+8. James_Bond.
+> script that sets the permission to the file hello as follows:
+>> Owner: no permission at all
+>> Group: no permission at all
+>> Other users: all the permissions
 >
-9. firstdirdeletion.
-> script that delete the directory holberton that is in the /tmp/ directory
+9. John_Doe.
+> script that sets the mode of the file hello to this:
+>> The file hello will be in the networking directory
+>> You are not allowed to use commas for this script
 >
-10. back
-> script that changes the working directory to the previous one
+10. mirror_permissions.
+> script that sets the mode of the file hello te same as another one
 >
-11. lists
+11. 
 > script that lists all files in the current directory and the parent of the working directory and the /boot directory, in long format
 >
 12. file_type

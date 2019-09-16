@@ -1,2 +1,2 @@
 #!/bin/bash
-id; $?==0 ? "hello $USER"
+echo hello $USER 

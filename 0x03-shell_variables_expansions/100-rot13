@@ -1,2 +1,2 @@
 #!/bin/bash
-tr "abcdefghijklmnopqrstuvwwxyz" "nopqrstuvwxyzabcdefghijklm"
+tr '[A-Za-z]' '[N-ZA-Mn-za-m]'

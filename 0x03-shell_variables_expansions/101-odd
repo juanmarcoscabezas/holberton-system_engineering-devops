@@ -1,2 +1,2 @@
 #!/bin/bash
-cat -n | grep -E "[02468]" -v
+ls -1 | grep -n . | grep "^[0-9]*[13579]:" | cut -d ":" -f 2

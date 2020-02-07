@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 # This script displays the content of the file /etc/passwd
 
-FILE="$(cat /etc/passwd)"
+FILE="cat /etc/passwd"
 
-for line in $FILE
+$FILE | while read line
 do
 	echo "$line" | cut -d ":" -f 1,3,6
 done

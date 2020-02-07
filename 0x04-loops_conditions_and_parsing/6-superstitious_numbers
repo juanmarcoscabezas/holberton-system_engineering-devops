@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script prints "Holberton School" 10 times
+# This script prints numbers using case statement
 
 i=1
 

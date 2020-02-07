@@ -1,5 +1,5 @@
-#!/bin/bash
-#This script prints "Holberton School" 10 times
+#!/usr/bin/env bash
+# This script prints "Holberton School" 10 times
 for ((i = 0; i < 10; i++))
 do
 	echo "Holberton School"

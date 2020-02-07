@@ -3,7 +3,7 @@
 
 h=0
 
-while [ $h -le 12 ]
+while [ $h -le 11 ]
 do
 	m=1
 	echo "Hour: $h"

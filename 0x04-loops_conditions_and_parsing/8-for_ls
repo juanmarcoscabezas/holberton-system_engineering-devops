@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+# This script prints "Holberton School" 10 times
+for l in *
+do
+	echo "$l" | cut -d "-" -f 2
+done

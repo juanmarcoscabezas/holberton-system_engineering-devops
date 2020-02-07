@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# This script displays the content of the file /etc/passwd
+
+FILE="cat /etc/passwd"
+
+$FILE | while read line
+do
+	USERNAME=$(echo "$line" | cut -d ":" -f 1)
+	GROUP_ID=$(echo "$line" | cut -d ":" -f 4)
+	HOME_DIRECTORY=$(echo "$line" | cut -d ":" -f 6)
+	COMMAND=$(echo "$line" | cut -d ":" -f 7)
+	USERID=$(echo "$line" | cut -d ":" -f 3)
+	PASSWORD=$(echo "$line" | cut -d ":" -f 2)
+	USERIDINFO=$(echo "$line" | cut -d ":" -f 5)
+	echo "The user $USERNAME is part of the $GROUP_ID gang, lives in $HOME_DIRECTORY and rides $COMMAND. $USERID's place is protected by the passcode $PASSWORD, more info about the user here: $USERIDINFO"
+done

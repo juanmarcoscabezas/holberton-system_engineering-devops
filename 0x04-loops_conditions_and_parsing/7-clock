@@ -3,14 +3,14 @@
 
 h=0
 
-while [ $h -le 11 ]
+while [ $h -le 12 ]
 do
 	m=1
 	echo "Hour: $h"
 	while [ $m -le 59 ]
 	do
-		echo $m
+		echo "$m"
 		m=$((m + 1))
 	done
-	h=$((i + 1))
+	h=$((h + 1))
 done

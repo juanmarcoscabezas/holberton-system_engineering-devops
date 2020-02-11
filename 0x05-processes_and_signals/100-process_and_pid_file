@@ -19,7 +19,7 @@ trap _int SIGINT
 trap _quit SIGQUIT
 
 sudo touch /var/run/holbertonscript.pid
-sudo echo $$ >> sudo /var/run/holbertonscript.pid
+sudo bash -c "echo $$ >> /var/run/holbertonscript.pid"
 while :
 do
 	echo "To infinity and beyond"

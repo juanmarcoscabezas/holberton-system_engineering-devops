@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# 
+PROCCESS=$(pgrep -f "./7-highlander")
+kill -9 "$PROCCESS"

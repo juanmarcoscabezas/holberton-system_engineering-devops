@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+# Displays "To infinity and beyond" indefinitely.
+
+_term() {
+	echo "I hate the kill command"
+	sudo rm /var/run/holbertonscript.pid
+}
+
+_int() {
+	echo "Y U no love me?!"
+}
+
+_quit() {
+	sudo rm /var/run/holbertonscript.pid
+}
+
+trap _term SIGTERM
+trap _int SIGINT
+trap _quit SIGQUIT
+
+sudo touch /var/run/holbertonscript.pid
+sudo echo $$ >> sudo /var/run/holbertonscript.pid
+while :
+do
+	echo "To infinity and beyond"
+	sleep 2
+done

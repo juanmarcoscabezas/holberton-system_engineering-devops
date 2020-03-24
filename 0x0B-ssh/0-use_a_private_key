@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# SSH using holberton key
+
+ssh -i ~/.ssh/holberton ubuntu@3.80.190.9

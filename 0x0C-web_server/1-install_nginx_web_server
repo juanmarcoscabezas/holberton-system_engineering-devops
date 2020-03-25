@@ -3,7 +3,6 @@
 
 sudo apt update
 sudo apt -y install nginx
-sudo ufw allow 'Nginx HTTP'
 sudo service nginx start
 sudo rm /var/www/html/index.html
 sudo bash -c 'echo "Holberton School" > /var/www/html/index.html'

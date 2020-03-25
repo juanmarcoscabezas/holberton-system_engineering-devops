@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Nginx installation
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
+sudo rm /var/www/html/index.html
+sudo bash -c "echo 'Holberton School' > /var/www/html/index.html"
+sed -i '/listen 80 default_server/a rewrite ^/redirect_me https://twitter.com/juanmarcab permanent;' /etc/nginx/sites-available/default

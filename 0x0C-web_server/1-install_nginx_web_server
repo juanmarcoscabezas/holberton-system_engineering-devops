@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 # Nginx installation
 
-sudo apt update &&
+sudo apt update
 sudo apt -y install nginx
 sudo ufw allow 'Nginx HTTP'
+sudo service nginx start
 sudo mkdir -p /var/www/html
-sudo chmod -R 755 /var/www
-sudo bash -c 'echo "Holberton School for the win!" > /var/www/html/index.html'
-sudo /etc/init.d/nginx start
+sudo bash -c 'echo "Holberton School" > /var/www/html/index.html'

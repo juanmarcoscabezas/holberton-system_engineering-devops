@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Docker Apache
+
+/etc/init.d/apache2 restart

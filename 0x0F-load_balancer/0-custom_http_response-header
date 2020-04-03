@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Nginx installation
+
+sudo apt-get update
+sudo apt-get -y install nginx
+sudo service nginx start
+sudo sed -i '29 a\\tadd_header X-Served-By $hostname;\n' /etc/nginx/sites-available/default
+sudo mkdir -p /var/www/html
+sudo bash -c "echo 'Holberton School' > /var/www/html/index.html"
+sudo service nginx restart

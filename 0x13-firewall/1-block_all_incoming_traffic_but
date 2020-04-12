@@ -1,0 +1,9 @@
+#!/bin/bash
+# Ufw - allow only 22, 80 and 443 ports
+sudo apt-get update -y
+sudo apt-get install ufw -y
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh/tcp
+sudo ufw allow http/tcp
+sudo ufw allow https/tcp

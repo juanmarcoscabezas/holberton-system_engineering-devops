@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# write a Bash script that will display information about subdomains.
+
+subdom () {
+    export DOM="$1"
+    export SUB="$2"
+
+    if [[ $SUB =~ ^$ ]]
+    then
+        host -a "www.$DOM" | awk '/^www./ {print "The subdomain www is a", $4, "record and points to", $5}'
+        host -a "lb-01.$DOM" | awk '/^lb-01./ {print "The subdomain lb-01 is a", $4, "record and points to", $5}'
+        host -a "web-01.$DOM" | awk '/^web-01./ {print "The subdomain web-01 is a", $4, "record and points to", $5}'
+        host -a "web-02.$DOM" | awk '/^web-02./ {print "The subdomain web-02 is a", $4, "record and points to", $5}'
+    else 
+        host -a "$SUB.$DOM" | awk '{split($1, token, ".")
+                                         if (ENVIRON["SUB"] == token[1])
+                                             printf "The subdomain %s is a %s record and points to %s\n", token[1], $4, $5}'
+    fi
+}
+
+if [ "A$1" != "A" ]
+then
+    subdom "$1" "$2"
+fi

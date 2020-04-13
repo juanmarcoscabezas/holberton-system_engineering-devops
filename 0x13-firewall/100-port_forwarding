@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# Ufw - allow only 22, 80 and 443 ports
+sudo ufw disable
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow ssh/tcp
+sudo ufw allow http/tcp
+sudo ufw allow https/tcp
+sudo ufw allow http-alt/tcp
+sudo sed -i "/^\*filter/i \*nat\n:PREROUTING ACCEPT [0:0]\n-A PREROUTING -p tcp --dport 8080 -j REDIRECT --to-port 80\nCOMMIT\n" /etc/ufw/before.rules
+sudo ufw enable

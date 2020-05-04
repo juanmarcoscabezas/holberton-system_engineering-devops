@@ -8,7 +8,6 @@ TODO list progress.
 
 import requests
 import sys
-import json
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1].isdigit():
@@ -22,14 +21,19 @@ if __name__ == '__main__':
             r = requests.get(todos_url
                              .format(userId))
             todos = r.json()
-            user_dict = dict()
-            new_todo = list()
-            for todo in todos:
-                new_todo.append({
-                                 'task': todo.get('title'),
-                                 'completed': todo.get('completed'),
-                                 'username': user.get('username')
-                               })
-            user_dict[userId] = new_todo
+            todos_arraystr = '{'
+            todos_arraystr += '"{}": ['.format(userId)
+            for i, todo in enumerate(todos):
+                todos_arraystr += '{'
+                todos_arraystr += '"task": "{}", '\
+                    .format(todo.get('title'))
+                todos_arraystr += '"completed": {}, '\
+                    .format(str(todo.get('completed')).lower())
+                todos_arraystr += '"username": "{}"'\
+                    .format(user.get('username'))
+                todos_arraystr += '}'
+                if i < len(todos) - 1:
+                    todos_arraystr += ', '
+            todos_arraystr += "]}"
             with open('{}.json'.format(userId), 'w') as jsonfile:
-                jsonfile.write(json.dumps(user_dict))
+                jsonfile.write(todos_arraystr)

@@ -16,16 +16,17 @@ if __name__ == '__main__':
         r = requests.get(usr_url
                          .format(userId))
         user = r.json()
-        todos_url = 'https://jsonplaceholder.typicode.com/todos/?userId={}'
-        r = requests.get(todos_url
-                         .format(userId))
-        todos = r.json()
-        doneTasks = 0
-        todosString = ''
-        for todo in todos:
-            if todo.get('completed'):
-                doneTasks += 1
-            todosString += '\t {}\n'.format(todo.get('title'))
-        print('Employee {} is done with tasks({:d}/{:d}):'.
-              format(user.get('name'), doneTasks, len(todos)))
-        print(todosString, end='')
+        if user:
+            todos_url = 'https://jsonplaceholder.typicode.com/todos/?userId={}'
+            r = requests.get(todos_url
+                             .format(userId))
+            todos = r.json()
+            doneTasks = 0
+            todosString = ''
+            for todo in todos:
+                if todo.get('completed'):
+                    doneTasks += 1
+                todosString += '\t {}\n'.format(todo.get('title'))
+            print('Employee {} is done with tasks({:d}/{:d}):'.
+                  format(user.get('name'), doneTasks, len(todos)))
+            print(todosString, end='')

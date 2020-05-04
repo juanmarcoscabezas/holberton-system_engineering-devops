@@ -23,6 +23,12 @@ if __name__ == '__main__':
                              .format(userId))
             todos = r.json()
             user_dict = dict()
-            user_dict[userId] = todos
+            new_todo = list()
+            for todo in todos:
+                new_todo.append({
+                                 'task': todo.get('title'),
+                                 'completed': todo.get('completed')
+                               })
+            user_dict[userId] = new_todo
             with open('{}.json'.format(userId), 'w') as jsonfile:
                 jsonfile.write(json.dumps(user_dict))

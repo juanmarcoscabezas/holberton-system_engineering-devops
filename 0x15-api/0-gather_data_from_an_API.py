@@ -26,7 +26,7 @@ if __name__ == '__main__':
             for todo in todos:
                 if todo.get('completed'):
                     doneTasks += 1
-                todosString += '\t {}\n'.format(todo.get('title'))
+                    todosString += '\t {}\n'.format(todo.get('title'))
             print('Employee {} is done with tasks({:d}/{:d}):'.
                   format(user.get('name'), doneTasks, len(todos)))
             print(todosString, end='')

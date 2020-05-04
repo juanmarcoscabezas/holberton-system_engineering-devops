@@ -8,7 +8,6 @@ TODO list progress.
 
 import requests
 import sys
-import csv
 
 if __name__ == '__main__':
     if len(sys.argv) > 1 and sys.argv[1].isdigit():
@@ -23,12 +22,7 @@ if __name__ == '__main__':
                              .format(userId))
             todos = r.json()
             with open('{}.csv'.format(userId), 'w') as csvfile:
-                """writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL,
-                                    lineterminator='\n')
-                """
                 for todo in todos:
-                    """writer.writerow([
-                    """
                     line = '"{}","{}","{}","{}"\n'.format(
                                     userId,
                                     user.get('username'),

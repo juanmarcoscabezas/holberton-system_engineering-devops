@@ -25,7 +25,8 @@ if __name__ == '__main__':
             doneTasks = 0
             todosString = ''
             with open('{}.csv'.format(userId), 'w') as csvfile:
-                writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
+                writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL,
+                                    lineterminator='\n')
                 for todo in todos:
                     writer.writerow([
                                      userId, user.get('username'),

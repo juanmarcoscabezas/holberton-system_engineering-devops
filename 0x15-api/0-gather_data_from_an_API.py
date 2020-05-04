@@ -9,17 +9,23 @@ TODO list progress.
 import requests
 import sys
 
-if len(sys.argv) > 0:
-    userId = sys.argv[1]
-    r = requests.get('https://jsonplaceholder.typicode.com/users/{}'.format(userId))
-    user = r.json()
-    r = requests.get('https://jsonplaceholder.typicode.com/todos/?userId={}'.format(userId))
-    todos = r.json()
-    doneTasks = 0
-    todosString = ''
-    for todo in todos:
-        if todo.get('completed') == True:
-            doneTasks +=1
-        todosString += '\t {}\n'.format(todo.get('title'))
-    print('Employee {} is done with tasks({:d}/{:d}):'.format(user.get('name'), doneTasks, len(todos)))
-    print(todosString, end='')
+if __name__ == '__main__':
+    if len(sys.argv) > 0:
+        userId = sys.argv[1]
+        usr_url = 'https://jsonplaceholder.typicode.com/users/{}'
+        r = requests.get(usr_url
+                         .format(userId))
+        user = r.json()
+        todos_url = 'https://jsonplaceholder.typicode.com/todos/?userId={}'
+        r = requests.get(todos_url
+                         .format(userId))
+        todos = r.json()
+        doneTasks = 0
+        todosString = ''
+        for todo in todos:
+            if todo.get('completed'):
+                doneTasks += 1
+            todosString += '\t {}\n'.format(todo.get('title'))
+        print('Employee {} is done with tasks({:d}/{:d}):'.
+              format(user.get('name'), doneTasks, len(todos)))
+        print(todosString, end='')

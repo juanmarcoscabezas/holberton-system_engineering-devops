@@ -28,6 +28,6 @@ if __name__ == '__main__':
                 writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
                 for todo in todos:
                     writer.writerow([
-                                     userId, user.get('name'),
+                                     userId, user.get('username'),
                                      todo.get('completed'),
                                      todo.get('title')])

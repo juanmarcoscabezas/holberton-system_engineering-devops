@@ -27,7 +27,8 @@ if __name__ == '__main__':
             for todo in todos:
                 new_todo.append({
                                  'task': todo.get('title'),
-                                 'completed': todo.get('completed')
+                                 'completed': todo.get('completed'),
+                                 'username': user.get('username')
                                })
             user_dict[userId] = new_todo
             with open('{}.json'.format(userId), 'w') as jsonfile:

@@ -31,4 +31,4 @@ if __name__ == '__main__':
                 user_todo.append(aux_dict)
                 new_users[user_id] = user_todo
     with open('todo_all_employees.json', 'w') as jsonfile:
-        jsonfile.write(json.dumps(new_users))
+        jsonfile.write(json.dumps(new_users, sort_keys=True))

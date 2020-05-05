@@ -18,6 +18,8 @@ if __name__ == '__main__':
     r = requests.get(todos_url)
     todos = r.json()
 
+    if users is None or todos is None:
+        exit()
     new_users = dict()
     for user in users:
         user_id = user.get('id')
@@ -25,10 +27,10 @@ if __name__ == '__main__':
         aux_dict = dict()
         for todo in todos:
             if todo.get('userId') == user_id:
-                aux_dict['username'] = user.get('username')
-                aux_dict['task'] = todo.get('title')
                 aux_dict['completed'] = todo.get('completed')
+                aux_dict['task'] = todo.get('title')
+                aux_dict['username'] = user.get('username')
                 user_todo.append(aux_dict)
                 new_users[user_id] = user_todo
     with open('todo_all_employees.json', 'w') as jsonfile:
-        jsonfile.write(json.dumps(new_users, sort_keys=True))
+        jsonfile.write(json.dumps(new_users))

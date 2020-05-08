@@ -9,6 +9,7 @@ is given, the function should return 0.
 
 import requests
 
+
 def number_of_subscribers(subreddit):
     """
     Get the number of subscribers
@@ -18,14 +19,11 @@ def number_of_subscribers(subreddit):
     r = requests.get(url, headers=h)
     if r.status_code > 200:
         return 0
-    try:
-        response = r.json()
-        data = response.get('data')
-        if data is None:
-            return 0
-        subscribers = data.get('subscribers')
-        if subscribers is None:
-            return 0
-        return subscribers
-    except ValueError:
+    response = r.json()
+    data = response.get('data')
+    if data is None:
         return 0
+    subscribers = data.get('subscribers')
+    if subscribers is None:
+        return 0
+    return subscribers

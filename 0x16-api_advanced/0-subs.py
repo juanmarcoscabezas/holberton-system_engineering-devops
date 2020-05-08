@@ -14,16 +14,18 @@ def number_of_subscribers(subreddit):
     """
     Get the number of subscribers
     """
-    h = {'User-Agent': 'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:76.0) Gecko/20100101 Firefox/76.0'}
+    h = {
+        'User-Agent':
+        'Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:76.0)\
+ Gecko/20100101 Firefox/76.0'
+    }
     url = 'http://www.reddit.com/r/{}/about.json'.format(subreddit)
     r = requests.get(url, headers=h)
     if r.status_code > 200:
         return 0
     response = r.json()
     data = response.get('data')
-    if data is None:
-        return 0
-    subscribers = data.get('subscribers')
-    if subscribers is None:
-        return 0
-    return subscribers
+    if data:
+        subscribers = data.get('subscribers')
+        return subscribers
+    return 0

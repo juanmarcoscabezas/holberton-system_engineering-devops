@@ -23,8 +23,7 @@ def top_ten(subreddit):
         response = r.json()
         data = response.get('data')
         posts = data.get('children')
-        for i, post in enumerate(posts):
-            if i < 10:
-                print(post.get('data').get('title'))
-            else:
-                return
+        for i, post in enumerate(posts[:10]):
+            print(post.get('data').get('title'))
+    else:
+        print('None')
